@@ -1,5 +1,5 @@
 # AI Job Description Generator on Google Cloud
-
+   ![JD Studio demo](screenshots/jd-studio-demo.gif)
 A serverless HR automation service that generates role-specific, inclusive job descriptions with **Gemini on Vertex AI**, grounded in company and role data stored in **Firestore**, and reviews them for compliance issues — exposed as **Cloud Functions (gen2)** HTTP APIs.
 
 ## Architecture
