@@ -13,7 +13,7 @@ from flask import jsonify
 
 PROJECT_ID = os.environ.get("GCP_PROJECT") or os.environ.get("GOOGLE_CLOUD_PROJECT")
 REGION = os.environ.get("FUNCTION_REGION", "us-central1")
-MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
 
 CORS_HEADERS = {
     "Access-Control-Allow-Origin": "*",
@@ -40,7 +40,7 @@ def get_genai():
     global _genai
     if _genai is None:
         from google import genai
-        _genai = genai.Client(vertexai=True, project=PROJECT_ID, location=REGION)
+        _genai = genai.Client(vertexai=True, project=PROJECT_ID, location=os.environ.get("GEMINI_LOCATION", "global"))
     return _genai
 
 
